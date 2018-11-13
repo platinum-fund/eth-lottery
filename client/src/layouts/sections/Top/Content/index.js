@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import Button from 'components/Button'
 import { getFundBalance } from 'data/fund/actions'
+import FundService from 'services/FundService'
 
 import iconParticipants from 'assets/img/general/first-icon-part.svg'
 import iconFund from 'assets/img/general/first-icon-fund.svg'
@@ -11,8 +12,27 @@ import iconPaid from 'assets/img/general/first-icon-paid.svg'
 import iconTrans from 'assets/img/general/first-icon-trans.svg'
 
 class Content extends Component {
+  state = {
+    totalInvestors: 0,
+    fundBalance: 1,
+    donated: 2,
+    paid: 3,
+    recentTransactions: []
+  }
+
   componentDidMount () {
-    this.props.dispatch(getFundBalance())
+    /*let statResults
+
+    await FundService.getStatistics()
+      .then(res => {
+        statResults = res
+      })
+      .catch(err => console.log(err))
+
+    for(let i=0; i < statResults.length; i++) {
+      console.log(i, statResults[i])
+    }*/
+    FundService.getStatistics()
   }
 
   render () {
