@@ -1,0 +1,1 @@
+import { createStore, compose } from 'redux'import { persistStore, autoRehydrate } from 'redux-persist'import { rootReducer } from 'data'const configureStore = () => {  const store = createStore(rootReducer, compose(autoRehydrate()))  persistStore(store, { whitelist: ['preferences'] })  return store}export default configureStore

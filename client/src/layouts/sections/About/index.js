@@ -1,0 +1,1 @@
+import React from 'react'import About from './template.js'class AboutContainer extends React.PureComponent {  render () {    return <About />  }}export default AboutContainer
