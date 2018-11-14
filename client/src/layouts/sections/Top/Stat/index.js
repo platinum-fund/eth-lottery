@@ -8,6 +8,12 @@ import iconDonated from 'assets/img/general/first-icon-donated.svg'
 import iconPaid from 'assets/img/general/first-icon-paid.svg'
 import iconTrans from 'assets/img/general/first-icon-trans.svg'
 import loader from 'assets/img/general/loader.svg'
+import posed, { PoseGroup } from 'react-pose'
+
+const TransList = posed.div({
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 700 } }
+})
 
 class Stat extends Component {
   constructor (props) {
@@ -160,7 +166,9 @@ class Stat extends Component {
                     </p>
                   </div>
                 </div>
-                {this.transactionsList()}
+                <TransList pose={this.state.isLoading ? 'hidden' : 'visible'}>
+                  {this.transactionsList()}
+                </TransList>
               </div>
             </div>
           </div>
