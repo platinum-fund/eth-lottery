@@ -12,12 +12,15 @@
     "react-hot-loader": "^4.3.12",
     "react-intl": "^2.7.2",
     "react-onclickoutside": "^6.7.1",
+    "react-pose": "^4.0.1",
     "react-redux": "^5.1.0",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
     "redux-persist": "4.8.3",
+    "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "styled-components": "^4.0.3"
+    "styled-components": "^4.0.3",
+    "web3": "^1.0.0-beta.36"
   },
   "scripts": {
     "start": "react-scripts start",
