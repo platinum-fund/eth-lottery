@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FormattedMessage } from 'react-intl'
 import FundService from 'services/FundService'
 
 import iconParticipants from 'assets/img/general/first-icon-part.svg'
@@ -71,7 +72,12 @@ class Stat extends Component {
             <div className="about flex">
               <img className="about__icons" src={iconParticipants} alt="" />
               <div className="about__right">
-                <p className="about__text">Participants</p>
+                <p className="about__text">
+                  <FormattedMessage
+                    id="participants"
+                    defaultMessage="Participants"
+                  />
+                </p>
                 <p className="about__num">
                   <span id="fundInvestors">
                     {this.statisticsParam('totalInvestors')}
@@ -84,7 +90,12 @@ class Stat extends Component {
             <div className="about flex">
               <img className="about__icons" src={iconFund} alt="" />
               <div className="about__right">
-                <p className="about__text">Fund balance</p>
+                <p className="about__text">
+                  <FormattedMessage
+                    id="fund_balance"
+                    defaultMessage="Fund balance"
+                  />
+                </p>
                 <p className="about__num">
                   <span id="fundBalance">
                     {this.statisticsParam('fundBalance')}
@@ -98,7 +109,12 @@ class Stat extends Component {
             <div className="about flex">
               <img className="about__icons" src={iconDonated} alt="" />
               <div className="about__right">
-                <p className="about__text">Donated to</p>
+                <p className="about__text">
+                  <FormattedMessage
+                    id="donated_to"
+                    defaultMessage="Donated to"
+                  />
+                </p>
                 <p className="about__num">
                   <span id="fundCharity">
                     {this.statisticsParam('donated')}
@@ -114,7 +130,12 @@ class Stat extends Component {
             <div className="about flex">
               <img className="about__icons" src={iconPaid} alt="" />
               <div className="about__right">
-                <p className="about__text">Paid to participants</p>
+                <p className="about__text">
+                  <FormattedMessage
+                    id="paid_to_participants"
+                    defaultMessage="Paid to participants"
+                  />
+                </p>
                 <p className="about__num">
                   <span id="fundPayed">{this.statisticsParam('paid')}</span> eth
                 </p>
@@ -127,7 +148,10 @@ class Stat extends Component {
               <div className="about__right flex">
                 <div className="about__right1">
                   <div className="about__text about__text_mb13">
-                    Recent transactions
+                    <FormattedMessage
+                      id="recent_transactions"
+                      defaultMessage="Recent transactions"
+                    />
                     <p className="about__num">
                       <span id="fundTransactions">
                         {this.statisticsParam('sumTransactions')}

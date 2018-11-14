@@ -1,4 +1,19 @@
 {
+  "about_us": "About us",
+  "join": "Join",
+  "participants": "Participants",
+  "fund_balance": "Fund balance",
+  "donated_to": "Donated to",
+  "paid_to_participants": "Paid to participants",
+  "recent_transactions": "Recent transactions",
+
+  "menu.how_does_it_works": "How does it works",
+  "menu.mission": "Mission",
+  "menu.conditions": "Conditions",
+  "menu.place": "Place/withdraw",
+  "menu.distribution": "Distribution",
+  "menu.contact": "Contact",
+
   "layouts.sections.top.content.title": "Welcome to a financial system of the future",
   "layouts.sections.about.tabs.first": "<h4 className=\"title-mini\">Life quality </h4>",
   "layouts.sections.how.title": "How does it works",

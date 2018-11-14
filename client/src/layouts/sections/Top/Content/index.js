@@ -16,7 +16,7 @@ class Content extends Component {
           </p>
           <div className="buttonss">
             <Button type="a" nature="flat" margin="0 30px 0 0" href="#how">
-              About us
+              <FormattedMessage id="about_us" defaultMessage="About us" />
             </Button>
             <Button
               type="a"
@@ -26,7 +26,7 @@ class Content extends Component {
                 process.env.REACT_APP_CONTRACT_ADDRESS
               }`}
             >
-              Join
+              <FormattedMessage id="join" defaultMessage="Join" />
             </Button>
           </div>
         </div>
