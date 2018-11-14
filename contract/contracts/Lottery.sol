@@ -85,8 +85,8 @@ contract Lottery {
         Deposit[] deposits;
     }
 
-    address constant marketing = 0x0000000000000000000000000000000000000003;
-    address constant team = 0x0000000000000000000000000000000000000007;
+    address constant marketing = address(0xf23645d7cb3a1273a87dd9943aa7b69a9b865bb0);
+    address constant team = address(0xeed4f3107326d6f8d0bf9f6f48b1587fcd9f8411);
     uint256 public totalDeposits;
     bool public running = true;
     mapping(address => User) public users;
@@ -125,7 +125,7 @@ contract Lottery {
                 );
             }
 
-            // Cleanup deposits array a bit
+            // Cleanup deposits array
             for (i = 0; i < user.deposits.length; i++) {
                 if (now >= user.deposits[i].time.add(MAX_DEPOSIT_TIME)) {
                     user.deposits[i] = user.deposits[user.deposits.length - 1];
