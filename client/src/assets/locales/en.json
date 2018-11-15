@@ -23,6 +23,18 @@
   "layouts.sections.conditions.header": "The best condition of a passive earnings",
   "layouts.sections.conditions.text": "The main difference of work of the SMART HOLDER smart contract within functioning of investments is that investments are limited to work term. This term fixed is in {days} calendar days, after which investment stops work and for continuation of a profit receiving it is necessary to create new investment in fund.",
   "layouts.sections.contacts.title": "Contact us",
+  "layouts.sections.mission.title": "Our mission",
+  "layouts.sections.mission.one.title": "Social aspect of mission",
+  "layouts.sections.mission.one.title.under": "Our help and aid",
+  "layouts.sections.mission.one.text": "Uniting of the people seeking to reach financial independence, safe and equitable distribution of profit between all members it is the main goals which we want to reach, providing to everyone from any country of the world of SMART HOLDER as the uniform platform of social fund and a reliable way of obtaining financial independence by the last achievements of blockchain-technologies and smart contracts.",
+  "layouts.sections.mission.two.title": "Financial aspect",
+  "layouts.sections.mission.two.title.under": "Availability of a high profit",
+  "layouts.sections.mission.two.text": "Thanks to unique technology of the algorithmic and automatic distribution of the Ethereum cryptocurrency among members which performs on the modern and not having analogs of the smart contract SMART HOLDER basis, which can’t be changed, we have received opportunities, unique by own nature, for constantly working fund within blockchain-technology with stable, risk-free and high profit.",
+  "layouts.sections.mission.three.title": "Independent management",
+  "layouts.sections.mission.three.title.under": "Smart-contract implementation",
+  "layouts.sections.mission.three.text": "The most significant part of our mission consists in providing to all participants of the process of uncontested a reliable and independent way of a profit receiving. This can only be the way of a smart contract. Only creation of the technology making impossible external intervention in the mechanism of of a profit distribution and in advance stipulated and unchangeable conditions of cooperation can guarantee trouble-free functioning of the SMART HOLDER fund.",
+
+
 
   "percent.perday": "per day for {days} days"
 }
