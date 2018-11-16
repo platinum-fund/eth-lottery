@@ -23,3 +23,10 @@ export const responseError = (error, value = '') => ({
 
 export const roundFixed = (value, multiplier = 100) =>
   Math.round(value * multiplier) / multiplier
+
+export const responseResultOrError = (res, errorMessage) => {
+  const { status, result } = res
+  return status === '1'
+    ? responseSuccess(result)
+    : responseError(errorMessage, '0')
+}

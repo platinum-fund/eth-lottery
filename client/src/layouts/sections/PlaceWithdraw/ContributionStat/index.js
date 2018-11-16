@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl'
 
 const ContributionStat = props => {
   const { data } = props
@@ -9,10 +10,19 @@ const ContributionStat = props => {
       <table className="table" id="userFunds">
         <thead>
           <tr>
-            <th>Депозит</th>
-            <th>Начислено, %</th>
-            <th>Выведено eth</th>
-            <th>Осталось, %</th>
+            <th>
+              <FormattedMessage id="deposit" defaultMessage="Deposit" />
+            </th>
+            <th>
+              <FormattedMessage id="accrued" defaultMessage="Accrued" />, %
+            </th>
+            <th>
+              <FormattedMessage id="withdrawn" defaultMessage="Withdrawn" />,
+              ETH
+            </th>
+            <th>
+              <FormattedMessage id="remains" defaultMessage="Remains" />, %
+            </th>
           </tr>
         </thead>
         <tbody>

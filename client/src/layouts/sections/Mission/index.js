@@ -6,10 +6,6 @@ import SecondImage from 'assets/img/general/deposit.svg'
 import ThirdImage from 'assets/img/general/investor.svg'
 
 class Mission extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const { intl } = this.props
 

@@ -1,6 +1,5 @@
 import RequestService from 'services/RequestService'
 import * as utils from './Utils'
-import { pathOr } from 'ramda'
 
 const {
   REACT_APP_CONTRACT_ADDRESS,
@@ -36,10 +35,11 @@ const contractBalance = () => {
 
   return requestWithApikey(url)
     .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No balance', '0')
+      const { status, result } = res
 
-      return utils.responseSuccess(utils.roundFixed(utils.fromWei(res.result)))
+      if (status !== '1') return utils.responseError('No balance', '0')
+
+      return utils.responseSuccess(utils.roundFixed(utils.fromWei(result)))
     })
     .catch(err => utils.responseError(err, '0'))
 }
@@ -55,10 +55,10 @@ const totalCharityHistory = () => {
 const totalCharity = () => {
   return totalCharityHistory()
     .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No history', '0')
+      const { status, result: history = [] } = res
 
-      const history = pathOr([], ['result'], res)
+      if (status !== '1') return utils.responseError('No history', '0')
+
       const totalCharity = history.reduce(
         (total, item) => (total += utils.fromWeiHex(item.data)),
         0
@@ -79,10 +79,11 @@ const totalInvestors = callback => {
 
   return requestWithApikey(url)
     .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No investors', '0')
+      const { status, result = [] } = res
 
-      const deposits = pathOr([], ['result'], res).reverse()
+      if (status !== '1') return utils.responseError('No investors', '0')
+
+      const deposits = result.reverse()
       const totalInvestors = []
       let txList = 0
 
@@ -121,10 +122,10 @@ const totalPaid = () => {
 
   return requestWithApikey(url)
     .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No dividend history', '0')
+      const { status, result: history = [] } = res
 
-      const history = pathOr([], ['result'], res)
+      if (status !== '1') return utils.responseError('No dividend history', '0')
+
       const totalDividendPayed = history.reduce(
         (total, item) =>
           (total += Number(utils.fromWeiHex(`0x${item.data.slice(130)}`))),
@@ -142,13 +143,37 @@ const getDepositHistory = address => {
   }&topic0=${config.addressDepositPayed}&topic1=${address}`
 
   return requestWithApikey(url)
-    .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No deposit history', '0')
+    .then(res => utils.responseResultOrError(res, 'No deposit history'))
+    .catch(err => utils.responseError(err, '0'))
+}
 
-      const depositHistory = pathOr([], ['result'], res).reverse()
+const getDividendHistory = address => {
+  const url = `${config.apiUrl}${config.getLogs}${config.blockInfo}&address=${
+    config.contract
+  }&topic0=${config.addressDividendPayed}&topic1=${address}`
 
-      const statistics = depositHistory.reduce((result, item) => {
+  return requestWithApikey(url)
+    .then(res => utils.responseResultOrError(res, 'No dividend history'))
+    .catch(err => utils.responseError(err, '0'))
+}
+
+const getFunds = async address => {
+  try {
+    let {
+      status: depStatus,
+      result: depositHistory = []
+    } = await getDepositHistory(address)
+    let {
+      status: divStatus,
+      result: dividendHistory = []
+    } = await getDividendHistory(address)
+    let statistics = []
+    let statisticsPayed = []
+
+    if (depStatus === '1') {
+      depositHistory = depositHistory.reverse()
+
+      statistics = depositHistory.reduce((result, item) => {
         const depositNumber = utils.hexToNumber(item.topics[2])
         const deposit = utils.roundFixed(
           utils.fromWeiHex(item.data.slice(0, 66)),
@@ -173,25 +198,12 @@ const getDepositHistory = address => {
 
         return result
       }, [])
+    }
 
-      return utils.responseSuccess({ statistics, depositHistory })
-    })
-    .catch(err => utils.responseError(err, '0'))
-}
+    if (divStatus === '1') {
+      dividendHistory = dividendHistory.reverse()
 
-const getDividendStatistics = (address, depositHistory) => {
-  const url = `${config.apiUrl}${config.getLogs}${config.blockInfo}&address=${
-    config.contract
-  }&topic0=${config.addressDividendPayed}&topic1=${address}`
-
-  return requestWithApikey(url)
-    .then(res => {
-      if (!res || res.status !== '1')
-        return utils.responseError('No dividend history', '0')
-
-      const dividendHistory = pathOr([], ['result'], res).reverse()
-
-      const statistics = dividendHistory.reduce((result, item) => {
+      statisticsPayed = dividendHistory.reduce((result, item) => {
         const depositNumber = utils.hexToNumber(item.topics[2])
         if (!depositHistory.includes(depositNumber)) {
           const deposit = utils.roundFixed(
@@ -215,18 +227,30 @@ const getDividendStatistics = (address, depositHistory) => {
 
         return result
       }, [])
+    }
 
-      return utils.responseSuccess(statistics)
-    })
-    .catch(err => utils.responseError(err, '0'))
+    for (let j = 0; j < statistics.length; j++) {
+      for (let k = 0; k < statisticsPayed.length; k++) {
+        if (
+          statistics[j].tx.depositNumber ===
+          statisticsPayed[k].txPayed.depositNumber
+        ) {
+          statistics[j].tx.allWithdraw = statisticsPayed[k].txPayed.allWithdraw
+          statistics[j].tx.percentPayed =
+            statisticsPayed[k].txPayed.percentPayed
+        }
+      }
+    }
+    return utils.responseSuccess(statistics)
+  } catch (err) {
+    return utils.responseError(err, '0')
+  }
 }
 
 export default {
   contractBalance,
-  totalCharityHistory,
   totalCharity,
   totalInvestors,
   totalPaid,
-  getDepositHistory,
-  getDividendStatistics
+  getFunds
 }

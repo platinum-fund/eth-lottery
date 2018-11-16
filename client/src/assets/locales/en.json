@@ -6,6 +6,10 @@
   "donated_to": "Donated to",
   "paid_to_participants": "Paid to participants",
   "recent_transactions": "Recent transactions",
+  "deposit": "Deposit",
+  "accrued": "Accrued",
+  "withdrawn": "Withdrawn",
+  "remains": "Remains",
 
   "menu.how_does_it_works": "How does it works",
   "menu.mission": "Mission",

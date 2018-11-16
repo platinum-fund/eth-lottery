@@ -27,7 +27,7 @@ class PlaceWithdraw extends Component {
     this.setState({ isLoading: true, stat: [] })
     try {
       // for test use 0XDB6827DE6B9FC722DC4EFA7E35F3B78C54932494
-      stat = await FundService.getContributionStat(
+      stat = await FundService.getFunds(
         '0x000000000000000000000000' + this.state.addressToCheck.slice(2)
       )
       this.setState({ isLoading: false, stat })

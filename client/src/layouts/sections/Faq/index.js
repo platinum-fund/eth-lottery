@@ -3,10 +3,6 @@ import Collapse from 'components/Collapse'
 import { injectIntl } from 'react-intl'
 
 class Faq extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const { intl } = this.props
 
