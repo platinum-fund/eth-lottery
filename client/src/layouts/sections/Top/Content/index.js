@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
+import JoinButton from 'components/JoinButton'
 import Button from 'components/Button'
 import Stat from '../Stat'
 
@@ -18,16 +19,7 @@ class Content extends Component {
             <Button type="a" nature="flat" margin="0 30px 0 0" href="#how">
               <FormattedMessage id="about_us" defaultMessage="About us" />
             </Button>
-            <Button
-              type="a"
-              nature="primary"
-              target="_blank"
-              href={`https://etherscan.io/address/${
-                process.env.REACT_APP_CONTRACT_ADDRESS
-              }`}
-            >
-              <FormattedMessage id="join" defaultMessage="Join" />
-            </Button>
+            <JoinButton />
           </div>
         </div>
         <Stat />

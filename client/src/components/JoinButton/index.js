@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from 'components/Button'
 import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl'
 
 const link = `https://etherscan.io/address/${
   process.env.REACT_APP_CONTRACT_ADDRESS
@@ -17,7 +18,7 @@ const JoinButton = props => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Join
+      <FormattedMessage id="join" defaultMessage="Join" />
     </Button>
   )
 }
