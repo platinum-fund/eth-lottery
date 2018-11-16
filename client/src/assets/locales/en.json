@@ -12,6 +12,7 @@
   "menu.conditions": "Conditions",
   "menu.place": "Place/withdraw",
   "menu.distribution": "Distribution",
+  "menu.faq": "FAQ",
   "menu.contact": "Contact",
 
   "layouts.sections.top.content.title": "Welcome to a financial system of the future",
@@ -47,6 +48,16 @@
   "layouts.sections.distribution.for_particpants": "are distributed between participants",
   "layouts.sections.distribution.for_promo": "for marketing and promotion",
   "layouts.sections.distribution.for_team": "team",
+  "layouts.sections.faq.one.q": "How does work the smart contract technology?",
+  "layouts.sections.faq.one.a": "The smart contract is the latest digital technology allowing to create the most transparent and confidential relations of all parties participating in work of this or that smart contract.",
+  "layouts.sections.faq.two.q": "How can I invest to SMART HOLDER",
+  "layouts.sections.faq.two.a": "Just send ETH to the address of SMART HOLDER fund, using the website of fund. We pay your attention, that transfer from exchange wallets isn’t allowed. Transfer is possible only from your personal ETH-wallet from which you have private keys.",
+  "layouts.sections.faq.three.q": "How to withdraw ETH from SMART HOLDER?",
+  "layouts.sections.faq.three.a": "Send 0 ETH to the address of SMART HOLDER fund’s smart contract, then you will receive your payment instantly. The withdrawal is immediately performed from all deposits.",
+  "layouts.sections.faq.four.q": "How can I realize additional opportunities of earnings in the fund?",
+  "layouts.sections.faq.four.a": "For this purpose is available to you the partner program, developed for optimization and development of processes of an additional earnings in our fund. Use the best opportunities of additional active income from the SMART HOLDER international community and earn totally up to 6% of total income of your referral structure for all three levels in depth.",
+  "layouts.sections.faq.five.q": "What profit will I get by participating in the fund?",
+  "layouts.sections.faq.five.a": "You get {term_percent}% daily for {term_days} days. After the expiration of this period, your deposit will be closed.",
 
   "percent.perday": "per day for {days} days"
 }

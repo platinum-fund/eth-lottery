@@ -8,6 +8,7 @@ const items = [
   { link: '#conditions', label: 'Conditions', id: 'menu.conditions' },
   { link: '#place', label: 'Place/withdraw', id: 'menu.place' },
   { link: '#distribution', label: 'Distribution', id: 'menu.distribution' },
+  { link: '#faq', label: 'FAQ', id: 'menu.faq' },
   { link: '#contacts', label: 'Contact', id: 'menu.contact' }
 ]
 

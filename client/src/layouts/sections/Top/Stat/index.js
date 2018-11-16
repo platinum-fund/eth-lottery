@@ -8,7 +8,7 @@ import iconDonated from 'assets/img/general/first-icon-donated.svg'
 import iconPaid from 'assets/img/general/first-icon-paid.svg'
 import iconTrans from 'assets/img/general/first-icon-trans.svg'
 import loader from 'assets/img/general/loader.svg'
-import posed, { PoseGroup } from 'react-pose'
+import posed from 'react-pose'
 
 const TransList = posed.div({
   hidden: { opacity: 0 },

@@ -74,11 +74,12 @@ export default () => (
           >
             {txt => <p>{txt}</p>}
           </FormattedMessage>
-          <br />
+          <br className="mob-hide" />
         </Left>
         <Right className="col-1-2">
           <Percent>
-            3<span>%</span>
+            {process.env.REACT_APP_TERM_PERCENT}
+            <span>%</span>
           </Percent>
           <FormattedMessage
             id="percent.perday"
