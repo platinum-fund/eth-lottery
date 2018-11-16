@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl'
-import Button from 'components/Button'
+import JoinButton from 'components/JoinButton'
 
 export default () => (
   <section className="how-sec sec-pad rel white-section" id="how">
@@ -21,9 +21,7 @@ export default () => (
             {txt => <p>{txt}</p>}
           </FormattedMessage>
           <br />
-          <Button nature="primary" href="#">
-            Join
-          </Button>
+          <JoinButton />
         </div>
         <div className="col-1-2 fz0">
           <iframe
