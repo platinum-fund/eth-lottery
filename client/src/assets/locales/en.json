@@ -33,8 +33,15 @@
   "layouts.sections.mission.three.title": "Independent management",
   "layouts.sections.mission.three.title.under": "Smart-contract implementation",
   "layouts.sections.mission.three.text": "The most significant part of our mission consists in providing to all participants of the process of uncontested a reliable and independent way of a profit receiving. This can only be the way of a smart contract. Only creation of the technology making impossible external intervention in the mechanism of of a profit distribution and in advance stipulated and unchangeable conditions of cooperation can guarantee trouble-free functioning of the SMART HOLDER fund.",
-
-
+  "layouts.sections.placewithdraw.title1": "How to place ETH to OUR fund?",
+  "layouts.sections.placewithdraw.title2": "How to withdraw eth",
+  "layouts.sections.placewithdraw.invest": "To make an investment in SMART HOLDER, transfer any amount of ETH to the address:",
+  "layouts.sections.placewithdraw.recommended_gas": "Recommended amount of gas",
+  "layouts.sections.placewithdraw.check_gas_price": "current gas price can be checked",
+  "layouts.sections.placewithdraw.transfer_warning": "Transfers from exchanges are not allowed! Only from your personal ETH wallet.",
+  "layouts.sections.placewithdraw.send_eth": "Send <b class=\"m-color fz35\">ANY ETH</b> to the our fund address and receive your payment instantly:",
+  "layouts.sections.placewithdraw.check_contribution": "check contribution",
+  "layouts.sections.placewithdraw.supported_wallets": "Supported<br/>ETH-wallets",
 
   "percent.perday": "per day for {days} days"
 }
