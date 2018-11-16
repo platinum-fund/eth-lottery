@@ -136,10 +136,97 @@ const totalPaid = () => {
     .catch(err => utils.responseError(err, '0'))
 }
 
+const getDepositHistory = address => {
+  const url = `${config.apiUrl}${config.getLogs}${config.blockInfo}&address=${
+    config.contract
+  }&topic0=${config.addressDepositPayed}&topic1=${address}`
+
+  return requestWithApikey(url)
+    .then(res => {
+      if (!res || res.status !== '1')
+        return utils.responseError('No deposit history', '0')
+
+      const depositHistory = pathOr([], ['result'], res).reverse()
+
+      const statistics = depositHistory.reduce((result, item) => {
+        const depositNumber = utils.hexToNumber(item.topics[2])
+        const deposit = utils.roundFixed(
+          utils.fromWeiHex(item.data.slice(0, 66)),
+          1000
+        )
+        const depositTime = utils.hexToNumber(item.timeStamp) * 1000
+        const currentTimestamp = +new Date()
+        const delta = Math.abs(currentTimestamp - depositTime) / 1000
+        const minutes = Math.floor(delta / 60)
+        const currenctPercent = Math.round(0.00208 * minutes * 1000) / 1000
+        const allWithdraw = 0
+        const percentPayed = 150
+        const tx = {
+          depositNumber,
+          deposit,
+          currenctPercent,
+          allWithdraw,
+          percentPayed
+        }
+
+        result.push({ tx })
+
+        return result
+      }, [])
+
+      return utils.responseSuccess({ statistics, depositHistory })
+    })
+    .catch(err => utils.responseError(err, '0'))
+}
+
+const getDividendStatistics = (address, depositHistory) => {
+  const url = `${config.apiUrl}${config.getLogs}${config.blockInfo}&address=${
+    config.contract
+  }&topic0=${config.addressDividendPayed}&topic1=${address}`
+
+  return requestWithApikey(url)
+    .then(res => {
+      if (!res || res.status !== '1')
+        return utils.responseError('No dividend history', '0')
+
+      const dividendHistory = pathOr([], ['result'], res).reverse()
+
+      const statistics = dividendHistory.reduce((result, item) => {
+        const depositNumber = utils.hexToNumber(item.topics[2])
+        if (!depositHistory.includes(depositNumber)) {
+          const deposit = utils.roundFixed(
+            utils.fromWeiHex(item.data.slice(0, 66)),
+            1000
+          )
+          const allWithdraw = utils.roundFixed(
+            utils.fromWeiHex(item.data.slice(66, 130)),
+            100000
+          )
+          const percentPayed = 150 - (150 * allWithdraw) / (deposit * 2.5)
+          const txPayed = {
+            depositNumber: depositNumber + 1,
+            deposit,
+            allWithdraw,
+            percentPayed
+          }
+          result.push({ txPayed })
+          depositHistory.push(depositNumber)
+        }
+
+        return result
+      }, [])
+
+      return utils.responseSuccess(statistics)
+    })
+    .catch(err => utils.responseError(err, '0'))
+}
+
 export default {
   contractBalance,
   totalCharityHistory,
   totalCharity,
   totalInvestors,
-  totalPaid
+  totalPaid,
+  getDepositHistory,
+  getDividendStatistics
 }

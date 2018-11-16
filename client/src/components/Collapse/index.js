@@ -13,7 +13,6 @@ class Collapse extends Component {
   }
 
   onClickItem = item => {
-    console.log(item)
     this.setState({ activeItem: item })
   }
 

@@ -8,6 +8,8 @@ export const fromWeiHex = value => fromWei(hexToNumberString(value))
 
 export const hexToNumberString = value => web3.utils.hexToNumberString(value)
 
+export const hexToNumber = value => web3.utils.hexToNumber(value)
+
 export const responseSuccess = value => ({
   status: '1',
   result: value
