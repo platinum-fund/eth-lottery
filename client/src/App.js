@@ -9,6 +9,7 @@ import HowSection from './layouts/sections/How'
 import MissionSection from './layouts/sections/Mission'
 import ConditionsSection from './layouts/sections/Conditions'
 import PlaceWithdrawSection from './layouts/sections/PlaceWithdraw'
+import DistributionSection from './layouts/sections/Distribution'
 import ContactsSection from './layouts/sections/Contacts'
 import Footer from './layouts/sections/Footer'
 
@@ -47,6 +48,7 @@ class App extends Component {
               <MissionSection />
               <ConditionsSection />
               <PlaceWithdrawSection />
+              <DistributionSection />
               <ContactsSection />
             </section>
             <Footer toggleMobileMenu={() => handleToggleMobileMenu()} />
