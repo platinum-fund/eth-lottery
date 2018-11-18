@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import './App.scss'
 import { Provider } from 'react-redux'
 import ConnectedIntlProvider from './providers/ConnectedIntlProvider'
-import ScrollableAnchor from 'react-scrollable-anchor'
-import { configureAnchors } from 'react-scrollable-anchor'
 
 import Nav from 'layouts/Nav'
 import TopSection from './layouts/sections/Top'
@@ -15,8 +13,6 @@ import DistributionSection from './layouts/sections/Distribution'
 import FaqSection from './layouts/sections/Faq'
 import ContactsSection from './layouts/sections/Contacts'
 import Footer from './layouts/sections/Footer'
-
-configureAnchors({ offset: -60, scrollDuration: 200 })
 
 class App extends Component {
   constructor (props) {
@@ -49,27 +45,13 @@ class App extends Component {
             </div>
             <section className="page__wrapper rel">
               <TopSection toggleMobileMenu={() => handleToggleMobileMenu()} />
-              <ScrollableAnchor id={'how'}>
-                <HowSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'mission'}>
-                <MissionSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'conditions'}>
-                <ConditionsSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'place'}>
-                <PlaceWithdrawSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'distribution'}>
-                <DistributionSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'faq'}>
-                <FaqSection />
-              </ScrollableAnchor>
-              <ScrollableAnchor id={'contacts'}>
-                <ContactsSection />
-              </ScrollableAnchor>
+              <HowSection />
+              <MissionSection />
+              <ConditionsSection />
+              <PlaceWithdrawSection />
+              <DistributionSection />
+              <FaqSection />
+              <ContactsSection />
             </section>
             <Footer toggleMobileMenu={() => handleToggleMobileMenu()} />
           </React.Fragment>
