@@ -57,8 +57,9 @@ class Stat extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {txn.hash}
+              {txn.hash.slice(0, 35)}
             </a>
+            <b className="m-color about__crypt">{txn.deposit} eth</b>
           </div>
         )
       })
@@ -91,8 +92,22 @@ class Stat extends Component {
                 </p>
               </div>
             </div>
+            <div className="about flex">
+              <img className="about__icons" src={iconPaid} alt="" />
+              <div className="about__right">
+                <p className="about__text">
+                  <FormattedMessage
+                    id="paid_to_participants"
+                    defaultMessage="Paid to participants"
+                  />
+                </p>
+                <p className="about__num">
+                  <span id="fundPayed">{this.statisticsParam('paid')}</span> eth
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="col-1-3">
+          <div className="col-1-4">
             <div className="about flex">
               <img className="about__icons" src={iconFund} alt="" />
               <div className="about__right">
@@ -110,8 +125,6 @@ class Stat extends Component {
                 </p>
               </div>
             </div>
-          </div>
-          <div className="col-1-3">
             <div className="about flex">
               <img className="about__icons" src={iconDonated} alt="" />
               <div className="about__right">
@@ -130,25 +143,7 @@ class Stat extends Component {
               </div>
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-1-3">
-            <div className="about flex">
-              <img className="about__icons" src={iconPaid} alt="" />
-              <div className="about__right">
-                <p className="about__text">
-                  <FormattedMessage
-                    id="paid_to_participants"
-                    defaultMessage="Paid to participants"
-                  />
-                </p>
-                <p className="about__num">
-                  <span id="fundPayed">{this.statisticsParam('paid')}</span> eth
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-2-3">
+          <div className="col-2-5">
             <div className="about flex">
               <img className="about__icons mob-hide" src={iconTrans} alt="" />
               <div className="about__right flex">
@@ -158,17 +153,13 @@ class Stat extends Component {
                       id="recent_transactions"
                       defaultMessage="Recent transactions"
                     />
-                    <p className="about__num">
-                      <span id="fundTransactions">
-                        {this.statisticsParam('sumTransactions')}
-                      </span>{' '}
-                      eth
-                    </p>
+                    <TransList
+                      pose={this.state.isLoading ? 'hidden' : 'visible'}
+                    >
+                      {this.transactionsList()}
+                    </TransList>
                   </div>
                 </div>
-                <TransList pose={this.state.isLoading ? 'hidden' : 'visible'}>
-                  {this.transactionsList()}
-                </TransList>
               </div>
             </div>
           </div>

@@ -16,7 +16,11 @@ import FaqSection from './layouts/sections/Faq'
 import ContactsSection from './layouts/sections/Contacts'
 import Footer from './layouts/sections/Footer'
 
-configureAnchors({ offset: -60, scrollDuration: 200 })
+configureAnchors({
+  offset: -100,
+  scrollDuration: 200,
+  keepLastAnchorHash: true
+})
 
 class App extends Component {
   constructor (props) {
