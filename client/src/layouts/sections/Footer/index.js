@@ -18,14 +18,8 @@ export default props => (
           </button>
         </div>
         <div className="flex-menu">
-          <a className="logo" href="/">
-            <img
-              src={logo}
-              className="logo-vect"
-              width="29"
-              height="21"
-              alt=""
-            />
+          <a className="logo-small" href="/">
+            &nbsp;
           </a>
           <Nav type="nav-top" className="flex" />
         </div>
