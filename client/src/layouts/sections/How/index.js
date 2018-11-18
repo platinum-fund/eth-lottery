@@ -15,24 +15,14 @@ export default () => (
     <br className="mob-hide" />
     <div className="w1140 black">
       <div className="row">
-        <div className="col-1-2">
+        <div className="col-1-5" />
+        <div className="col-3-5 align-center">
           <FormattedHTMLMessage id="layouts.sections.how.header" />
           <FormattedMessage id="layouts.sections.how.text">
             {txt => <p>{txt}</p>}
           </FormattedMessage>
           <br />
-          <JoinButton />
-        </div>
-        <div className="col-1-2 fz0">
-          <iframe
-            title="video"
-            width="460"
-            height="320"
-            src="https://www.youtube.com/embed/ilLowhZYa6g"
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          <JoinButton className="how-sec-join" width="30%" />
         </div>
       </div>
     </div>

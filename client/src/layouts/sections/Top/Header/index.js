@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import logo from 'assets/img/logo.svg'
+import logoBig from 'assets/img/logo-big.svg'
+import logo from 'assets/img/logo-big.svg'
 import Nav from 'layouts/Nav'
 import DropdownLanguage from 'layouts/DropdownLanguage'
 
@@ -43,13 +44,7 @@ class Header extends Component {
           </div>
           <div className="flex-menu">
             <a className="logo" href="/">
-              <img
-                src={logo}
-                className="logo-vect"
-                width="53"
-                height="54"
-                alt=""
-              />
+              &nbsp;
             </a>
             <Nav type="nav-top" />
           </div>
