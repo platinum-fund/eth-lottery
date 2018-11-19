@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from 'assets/img/logo1.svg'
 import Nav from 'layouts/Nav'
 import DropdownLanguage from 'layouts/DropdownLanguage'
 

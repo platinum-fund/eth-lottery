@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import logoBig from 'assets/img/logo-big.svg'
-import logo from 'assets/img/logo-big.svg'
 import Nav from 'layouts/Nav'
 import DropdownLanguage from 'layouts/DropdownLanguage'
 
